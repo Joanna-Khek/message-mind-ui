@@ -15,19 +15,16 @@ import {
 import { Code, Group } from '@mantine/core';
 import { MantineLogo } from '@mantinex/mantine-logo';
 import classes from './NavbarSimple.module.css';
+import { useRouter } from 'next/navigation';
 
 const data = [
-  { link: '', label: 'Notifications', icon: IconBellRinging },
-  { link: '', label: 'Billing', icon: IconReceipt2 },
-  { link: '', label: 'Security', icon: IconFingerprint },
-  { link: '', label: 'SSH Keys', icon: IconKey },
-  { link: '', label: 'Databases', icon: IconDatabaseImport },
-  { link: '', label: 'Authentication', icon: Icon2fa },
-  { link: '', label: 'Other Settings', icon: IconSettings },
+  { link: '/dashboard', label: 'Dashboard', icon: IconBellRinging },
+  { link: '', label: 'Completed', icon: IconReceipt2 },
 ];
 
 export function NavbarSimple() {
-  const [active, setActive] = useState('Billing');
+  const [active, setActive] = useState('Dashboard');
+  const router = useRouter(); // Initialize router
 
   const links = data.map((item) => (
     <a
@@ -38,6 +35,7 @@ export function NavbarSimple() {
       onClick={(event) => {
         event.preventDefault();
         setActive(item.label);
+        router.push(item.link); // Navigate to the link
       }}
     >
       <item.icon className={classes.linkIcon} stroke={1.5} />
