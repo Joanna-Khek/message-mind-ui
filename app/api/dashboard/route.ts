@@ -27,7 +27,7 @@ export async function GET() {
   
 export async function PATCH(request: Request) {
   try {
-    const { id } = await request.json();
+    const { id, completed } = await request.json();
 
     if (!id) {
       return NextResponse.json({ error: 'Missing document ID' }, { status: 400 });
@@ -47,14 +47,14 @@ export async function PATCH(request: Request) {
 
     const result = await db.collection(collectionName).updateOne(
       { _id: new ObjectId(id) },
-      { $set: { completed: true } }
+      { $set: { completed: completed } }
     );
 
     if (result.modifiedCount === 0) {
       return NextResponse.json({ error: 'No document updated' }, { status: 404 });
     }
 
-    return NextResponse.json({ message: 'Marked as completed' });
+    return NextResponse.json({ message: `Marked as ${completed ? 'completed' : 'incomplete'}` });
   } catch (error) {
     return NextResponse.json({ error: 'Failed to update document' }, { status: 500 });
   }
