@@ -8,11 +8,7 @@ import { titleCategory } from "@/utils";
 
 
 export default async function Dashboard() {
-    // const [message, setMessage] = React.useState("");
-    // const onClick = async () => {
-    //     const { data } = await makePostRequest();
-    //     setMessage(data.message);
-    // };
+
     const items = await fetchData();
 
     // Extract unique category names
