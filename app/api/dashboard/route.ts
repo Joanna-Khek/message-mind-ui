@@ -19,7 +19,7 @@ export async function GET() {
       const data = await db.collection(collectionName).find({ category: { $exists: true }}).toArray();
 
       return NextResponse.json(data);
-    } catch (error) {
+    } catch  {
       return NextResponse.json({ error: 'Failed to retrieve data' }, { status: 500 });
     }
   }
@@ -54,7 +54,7 @@ export async function PATCH(request: Request) {
     }
 
     return NextResponse.json({ message: `Marked as ${completed ? 'completed' : 'incomplete'}` });
-  } catch (error) {
+  } catch {
     return NextResponse.json({ error: 'Failed to update document' }, { status: 500 });
   }
 }

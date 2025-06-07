@@ -31,7 +31,7 @@ export async function GET(request: Request, { params }: { params: Promise<{ id: 
 }
 
 
-export async function PUT(request: Request, { params }: { params: { id: string }}) {
+export async function PUT(request: Request, { params }: { params: Promise<{ id: string }> }) {
     try {
         const { id } = await params; // Await params to resolve the Promise
         const body = await request.json();
@@ -62,12 +62,12 @@ export async function PUT(request: Request, { params }: { params: { id: string }
         }
 
         return NextResponse.json({ message: 'Item updated successfully' });
-    } catch (error) {
+    } catch  {
         return NextResponse.json({ error: 'Failed to update item' }, { status: 500 });
     }
 }
 
-export async function DELETE(request: Request, { params }: { params: { id: string }}) {
+export async function DELETE(request: Request, { params }: { params: Promise<{ id: string }> }) {
     try {
         const { id } = await params; // Await params to resolve the Promise
         const collectionName = process.env.DB_COLLECTION_NAME;
@@ -89,7 +89,7 @@ export async function DELETE(request: Request, { params }: { params: { id: strin
         }
 
         return NextResponse.json({ message: 'Item deleted successfully' });
-    } catch (error) {
+    } catch  {
         return NextResponse.json({ error: 'Failed to delete item' }, { status: 500 });
     }
 }
