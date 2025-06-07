@@ -3,7 +3,7 @@ import { TableReviews } from "@/components/Tables/TableReviews";
 import { fetchData } from "@/utils";
 import { Tabs, TabsList, TabsTab, TabsPanel } from '@mantine/core';
 
-export default async function CategoryPage({ params }: { params: { category: string }}) {
+export default async function CategoryPage({ params }: { params: Promise<{ category: string }> }) {
     const { category } = await params;
     const title = titleCategory(category);
     const formattedTitle = lowercaseCategory(category);

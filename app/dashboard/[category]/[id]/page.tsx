@@ -47,7 +47,7 @@ export default function EditItemPage() {
                 );
                 setCategories(uniqueCategories);
                 setLoading(false);
-            } catch (error) {
+            } catch {
                 toast.error('Failed to load item');
                 setLoading(false);
             }
@@ -79,7 +79,7 @@ export default function EditItemPage() {
             if (!res.ok) throw new Error('Failed to update item');
             toast.success('Item updated successfully');
             router.push(`/dashboard/${category}`); // Redirect back to dashboard
-        } catch (error) {
+        } catch  {
             toast.error('Failed to update item');
         }
     };
