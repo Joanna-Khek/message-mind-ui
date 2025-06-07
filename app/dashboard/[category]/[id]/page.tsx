@@ -3,9 +3,8 @@
 import { useRouter, useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { Item } from '@/utils/fetchData';
-import { Button, TextInput, Textarea, Group, Select } from '@mantine/core';
+import { Button, TextInput, Textarea, Group } from '@mantine/core';
 import { toast } from 'react-toastify';
-import { lowercaseCategory } from '@/utils';
 import { fetchData } from "@/utils"
 import { SelectCreatable } from '@/components/SelectOption/SelectCreatable';
 

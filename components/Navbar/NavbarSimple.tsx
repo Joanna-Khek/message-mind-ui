@@ -2,14 +2,9 @@
 
 import { useState } from 'react';
 import {
-  Icon2fa,
   IconBellRinging,
-  IconDatabaseImport,
-  IconFingerprint,
-  IconKey,
   IconLogout,
   IconReceipt2,
-  IconSettings,
   IconSwitchHorizontal,
 } from '@tabler/icons-react';
 import { Code, Group } from '@mantine/core';
