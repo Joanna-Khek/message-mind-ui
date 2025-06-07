@@ -24,7 +24,8 @@ import {
     const handleSignIn = async () => {
       try {
         await signIn(email, password);
-        router.push("/dashboard"); 
+        router.push("/dashboard");
+        toast.success("Sign in successful!");
       } catch (error) {
         console.error("Sign in failed:", error);
         toast.error("Sign in failed. Please check your credentials.")
