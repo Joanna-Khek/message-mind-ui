@@ -27,6 +27,8 @@ const options: MongoClientOptions = {
   minPoolSize: 2,
   connectTimeoutMS: 10000,
   socketTimeoutMS: 45000,
+  tls: true,
+  tlsAllowInvalidCertificates: true,
 };
 
 // This caches the connection to avoid multiple connections, critical for Next.js API routes and Server Components.
