@@ -20,7 +20,6 @@ export async function GET() {
 
       return NextResponse.json(data);
     } catch (error) {
-      console.error(error);
       return NextResponse.json({ error: 'Failed to retrieve data' }, { status: 500 });
     }
   }

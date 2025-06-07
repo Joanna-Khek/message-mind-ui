@@ -1,6 +1,5 @@
 import { Combobox, InputBase, useCombobox } from '@mantine/core';
 import { useState, useEffect } from 'react';
-import { lowercaseCategory } from '@/utils';
 
 interface SelectCreatableProps {
     label: string;
