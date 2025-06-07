@@ -8,7 +8,6 @@ import { titleCategory } from "@/utils";
 
 
 export default async function Dashboard() {
-
     const items = await fetchData();
 
     // Extract unique category names
