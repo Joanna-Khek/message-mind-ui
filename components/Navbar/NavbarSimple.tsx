@@ -16,6 +16,7 @@ import { Code, Group } from '@mantine/core';
 import { MantineLogo } from '@mantinex/mantine-logo';
 import classes from './NavbarSimple.module.css';
 import { useRouter } from 'next/navigation';
+import { authClient } from "@/lib/auth-client";
 
 const data = [
   { link: '/dashboard', label: 'Dashboard', icon: IconBellRinging },
@@ -25,6 +26,12 @@ const data = [
 export function NavbarSimple() {
   const [active, setActive] = useState('Dashboard');
   const router = useRouter(); // Initialize router
+
+  const handleLogout = async (event: React.MouseEvent) => {
+    event.preventDefault();
+    await authClient.signOut();
+    router.push('/'); // redirect to home or login page after logout
+  };
 
   const links = data.map((item) => (
     <a
@@ -59,7 +66,7 @@ export function NavbarSimple() {
           <span>Change account</span>
         </a>
 
-        <a href="#" className={classes.link} onClick={(event) => event.preventDefault()}>
+        <a href="#" className={classes.link} onClick={handleLogout}>
           <IconLogout className={classes.linkIcon} stroke={1.5} />
           <span>Logout</span>
         </a>
