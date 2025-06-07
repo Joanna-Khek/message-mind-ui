@@ -40,7 +40,7 @@ export function TableReviews({ items: initialItems }: TableReviewsProps) {
                 throw new Error("Failed to update status");
             }
                 toast.success(`Marked as ${!currentStatus ? 'completed' : 'incomplete'}`);
-            } catch (error) {
+            } catch {
                 toast.error('Failed to update');
             }
         };
@@ -63,7 +63,7 @@ export function TableReviews({ items: initialItems }: TableReviewsProps) {
             if (!res.ok) throw new Error('Failed to delete item');
             setItems(items.filter((item) => item._id !== id));
             toast.success('Item deleted successfully');
-        } catch (error) {
+        } catch {
             toast.error('Failed to delete item');
         }
 

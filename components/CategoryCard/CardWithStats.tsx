@@ -1,11 +1,9 @@
 "use client";
 
-import { Card, CardSection, Group, Image, RingProgress, Text } from '@mantine/core';
+import { Card, CardSection, Group, RingProgress, Text } from '@mantine/core';
 import { Button } from '@mantine/core';
 import { useRouter } from 'next/navigation';
 import classes from './CardWithStats.module.css';
-import { Router } from 'next/router';
-
 
 interface Props {
   category: string;
