@@ -1,19 +1,52 @@
 .navbar {
-    min-height: 0;
-    /* Important for flex children to shrink properly */
-    height: auto;
-    width: 300px;
-    padding: var(--mantine-spacing-md);
+    width: 250px;
+    transition: width 0.3s ease, opacity 0.3s ease;
+    overflow: hidden;
+    opacity: 1;
     display: flex;
     flex-direction: column;
+    padding: var(--mantine-spacing-md);
     border-right: 1px solid light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
 }
+
+.navbar.contracted {
+    width: 0;
+    opacity: 0;
+    padding: 0;
+    border: none;
+}
+
+.toggleButton {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    background: var(--mantine-color-blue-6);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+}
+
+.toggleButton:hover {
+    background: var(--mantine-color-blue-7);
+    transform: scale(1.05);
+}
+
 
 .navbarMain {
     flex: 1;
 }
 
 .header {
+    transition: opacity 0.3s ease;
     padding-bottom: var(--mantine-spacing-md);
     margin-bottom: calc(var(--mantine-spacing-md) * 1.5);
     border-bottom: 1px solid light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
